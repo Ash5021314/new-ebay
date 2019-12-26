@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../ebay/.idea/ebay.iml" filepath="$PROJECT_DIR$/../ebay/.idea/ebay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../ReactProjects/mern-shopping-list/.idea/mern-shopping-list.iml" filepath="$PROJECT_DIR$/../../ReactProjects/mern-shopping-list/.idea/mern-shopping-list.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/new-ebay.iml" filepath="$PROJECT_DIR$/.idea/new-ebay.iml" />
+    </modules>
+  </component>
+</project>
