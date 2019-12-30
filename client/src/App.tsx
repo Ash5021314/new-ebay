@@ -5,11 +5,11 @@ import Landing from './component/Landing'
 import Login from './component/Login'
 import Register from './component/Register'
 import Profile from './component/Profile'
+import Cart from './component/Cart'
 
 const App = () => {
 
     return (
-
         <Router>
             <div className="App">
                 <Navbar/>
@@ -18,6 +18,7 @@ const App = () => {
                     <Route exact path='/register' component={Register}/>
                     <Route exact path='/login' component={Login}/>
                     <Route exact path='/profile' component={Profile}/>
+                    <Route exact path='/Cart' component={Cart}/>
                 </div>
             </div>
         </Router>

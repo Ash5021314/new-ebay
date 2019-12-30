@@ -1,16 +1,17 @@
 import React from 'react'
-import {Link, withRouter} from 'react-router-dom'
+import {Link} from 'react-router-dom'
+import {bindActionCreators} from "redux";
+import * as cartAction from "./actions/cart";
+import {connect} from "react-redux";
 
 const Navbar = (props: any) => {
-    console.log(props);
+    const {totalPrice, count} = props;
     const logout = (e: any) => {
         e.preventDefault();
         localStorage.removeItem('usertoken');
         props.history.push('/');
     };
-    const search = (<input type='text'/>);
     const loginRegLink = (
-
         <ul className="navbar-nav">
             <li className="nav-item">
                 <Link to="/login" className="nav-link">
@@ -42,7 +43,6 @@ const Navbar = (props: any) => {
         </ul>
     );
     return (
-
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark rounded">
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1"
                     aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,12 +56,29 @@ const Navbar = (props: any) => {
                         </Link>
                     </li>
                 </ul>
-                {search}
                 {localStorage.usertoken ? userLink : loginRegLink}
+                <ul className="navbar-nav">
+                    <li className="nav-item">
+                        <Link to="" className="nav-link">
+                            Total: <b>{totalPrice}</b> $
+                        </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/Cart" className="nav-link">
+                            Cart (<b>{count}</b>)
+                        </Link>
+                    </li>
+                </ul>
             </div>
-
         </nav>
     )
 };
 
-export default withRouter(Navbar);
+const mapStateToProps = ({cart}: any) => ({
+    totalPrice: cart.items.reduce((total: number, product: any) => total + product.price, 0),
+    count: cart.items.length
+});
+const mapDispatchToProps = (dispatch: any) => ({
+    ...bindActionCreators(cartAction, dispatch)
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

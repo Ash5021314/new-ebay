@@ -10,13 +10,10 @@ const Profile = () => {
     useEffect(() => {
         const token = localStorage.usertoken;
 
-        const decoded = jwt_decode(token);
+        const decoded: any = jwt_decode(token);
         setUser({
-            // @ts-ignore
             first_name: decoded.first_name,
-            // @ts-ignore
             last_name: decoded.last_name,
-            // @ts-ignore
             email: decoded.email
         });
     }, []);
