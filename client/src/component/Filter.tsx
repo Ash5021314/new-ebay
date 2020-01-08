@@ -39,7 +39,6 @@ const Filter = (props: any) => {
             <Menu.Item>
                 <Input onChange={e => setSearchQuery(e.target.value)} value={searchQuery} placeholder="search"
                        icon="search"/>
-                {console.log(searchQuery)}
             </Menu.Item>
 
         </Menu>

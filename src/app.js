@@ -5,6 +5,7 @@ import logger from 'morgan';
 import indexRouter from './routes/index';
 import Users from './routes/Users'
 import mongoose from 'mongoose'
+import items from './routes/items'
 
 const app = express();
 
@@ -19,5 +20,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use('/', indexRouter);
-app.use('/users', Users)
+app.use('/users', Users);
+app.use('/items', items);
+
+
 export default app;

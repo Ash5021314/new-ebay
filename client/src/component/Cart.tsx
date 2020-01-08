@@ -12,7 +12,7 @@ const cartContent = ({title, id, image, removeFromCart}: any) => {
                     <div className="right floated content">
                         <div className="ui button" onClick={() => removeFromCart(id)} color="red">Remove</div>
                     </div>
-                    <img className="ui avatar image" src={image}/>
+                    <img className="ui avatar image" src={image} alt=''/>
                     <div className="content">
                         {title}
                     </div>

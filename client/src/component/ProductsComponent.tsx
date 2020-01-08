@@ -4,8 +4,8 @@ import {bindActionCreators} from "redux";
 import * as cartAction from "./actions/cart";
 import {connect} from "react-redux";
 
-const ProductsComponent = (products: any) => {
-    const {title, author, price, image, onClick, addToCart, addedCount} = products;
+const ProductsComponent = (product: any) => {
+    const {title, author, price, image,description, onClick, addToCart, addedCount} = product;
     return (
         <Card>
             <Image onClick={onClick} src={image} wrapped ui={false}/>
@@ -15,7 +15,7 @@ const ProductsComponent = (products: any) => {
                     <span className='date'>{author}</span>
                 </Card.Meta>
                 <Card.Description>
-                    Matthew is a musician living in Nashville.
+                    {description}
                 </Card.Description>
             </Card.Content>
             <Card.Content extra>
@@ -25,14 +25,14 @@ const ProductsComponent = (products: any) => {
                 </span>
 
             </Card.Content>
-            <Button onClick={() => addToCart(products)}>Add to cart {addedCount > 0 && `(${addedCount})`}</Button>
+            <Button onClick={() => addToCart(product)}>Add to cart {addedCount > 0 && `(${addedCount})`}</Button>
         </Card>
     );
 };
 
-const mapStateToProps = ({cart}: any, {id}: any) => ({
+const mapStateToProps = ({cart}: any, {_id}: any) => ({
     addedCount: cart.items.reduce(
-        (count: any, product: any) => count + (product.id === id ? 1 : 0), 0
+        (count: any, product: any) => count + (product._id === _id ? 1 : 0), 0
     )
 });
 const mapDispatchToProps = (dispatch: any) => ({

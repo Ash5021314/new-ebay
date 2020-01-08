@@ -8,7 +8,6 @@ import ProductsComponent from "./ProductsComponent";
 import Filter from "./Filter";
 import {bindActionCreators} from 'redux'
 import orderBy from 'lodash/orderBy'
-import Cart from './Cart'
 
 const Landing = (props: any) => {
     const {products, setFilter, isReady} = props;
@@ -22,11 +21,10 @@ const Landing = (props: any) => {
     });
     useEffect(() => {
         const {setProducts} = props;
-        axios.get('/products.json').then(({data}) => {
+        axios.get('items').then(({data}) => {
             setProducts(data)
         })
     }, []);
-
     return (
         <>
             <Modal
@@ -43,6 +41,9 @@ const Landing = (props: any) => {
                         <p>
                             {modalContent.description}
                         </p>
+                        <p>
+                           $  {modalContent.price}
+                        </p>
                     </Modal.Description>
                 </Modal.Content>
                 {/*<Modal.Actions>*/}
@@ -55,8 +56,8 @@ const Landing = (props: any) => {
                 <Filter setFilter={setFilter}/>
                 <Card.Group itemsPerRow={4}>
                     {!isReady ? "Loading..." :
-                        products.map((product: { id: number, title: string, author: string, price: number, image: string, description: string, onAdd: any }) =>
-                            <ProductsComponent key={product.id}  {...product}
+                        products.map((product: { _id: number, title: string, author: string, price: number, image: string, description: string, onAdd: any }) =>
+                            <ProductsComponent key={product._id}  {...product}
                                                onClick={() => {
                                                    setModalContent({
                                                        image: product.image,
@@ -64,7 +65,7 @@ const Landing = (props: any) => {
                                                        author: product.author,
                                                        price: product.price,
                                                        description: product.description
-                                                   })
+                                                   });
                                                    setModalOpen(!modalOpen)
                                                }}/>)}
                 </Card.Group>

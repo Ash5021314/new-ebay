@@ -15,9 +15,9 @@ export default (state = initialState, action: any) => {
             return {
                 ...state,
                 // @ts-ignore
-                items: state.items.filter(o => o.id != action.payload)
+                items: state.items.filter(o => o._id != action.payload)
             }
-            break
+
         default:
             return state;
     }
