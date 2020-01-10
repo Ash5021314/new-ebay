@@ -32,7 +32,7 @@ const ProductsComponent = (product: any) => {
 
 const mapStateToProps = ({cart}: any, {_id}: any) => ({
     addedCount: cart.items.reduce(
-        (count: any, product: any) => count + (product._id === _id ? 1 : 0), 0
+        (count: number, product: any) => count + (product._id === _id ? 1 : 0), 0
     )
 });
 const mapDispatchToProps = (dispatch: any) => ({

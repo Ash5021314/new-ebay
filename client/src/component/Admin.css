@@ -1,0 +1,20 @@
+.productImg{
+    height: 200px;
+    width: 150px;
+    float: left;
+    margin-right: 50px;
+}
+.adminContent{
+    float: left;
+    margin-right: 50px;
+}
+.adminList{
+    border-bottom: 1px solid;
+    padding: 20px 0 !important;
+}
+.adminFlex{
+    display: flex ;
+    align-items: center;
+    justify-content: space-between;
+
+}

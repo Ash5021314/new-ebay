@@ -6,6 +6,8 @@ import Login from './component/Login'
 import Register from './component/Register'
 import Profile from './component/Profile'
 import Cart from './component/Cart'
+import Administrator from "./component/Administrator";
+
 
 const App = () => {
 
@@ -15,6 +17,7 @@ const App = () => {
                 <Navbar/>
                 <Route exact path='/' component={Landing}/>
                 <div className="container">
+                    <Administrator/>
                     <Route exact path='/register' component={Register}/>
                     <Route exact path='/login' component={Login}/>
                     <Route exact path='/profile' component={Profile}/>

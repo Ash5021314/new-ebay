@@ -1,6 +1,6 @@
 const initialState = {
     isReady: false,
-    items: null,
+    items: [],
     filterBy: 'all'
 };
 export default (state = initialState, action: any) => {
@@ -11,6 +11,11 @@ export default (state = initialState, action: any) => {
                 items: action.payload,
                 isReady: true
             };
+        case 'DELETE_ITEM':
+            return {
+                ...state,
+                items: state.items.filter(({_id}) => _id !== action.payload)
+            }
         case 'SET_IS_READY':
             return {
                 ...state,
