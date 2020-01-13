@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import jwt_decode from 'jwt-decode';
 
-const Profile = () => {
+const Profile = (props:any) => {
+
     const [user, setUser] = useState({
         first_name: '',
         last_name: '',
@@ -9,8 +10,11 @@ const Profile = () => {
     });
     useEffect(() => {
         const token = localStorage.usertoken;
-
         const decoded: any = jwt_decode(token);
+        if (!token){
+            console.log(decoded);
+            return
+        }
         setUser({
             first_name: decoded.first_name,
             last_name: decoded.last_name,

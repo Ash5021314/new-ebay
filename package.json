@@ -7,7 +7,7 @@
     "client-install": "npm install --prefix client",
     "server": "babel-node ./src/bin/www",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "docker-compose up -d && concurrently \"npm run server\" \"npm run client\""
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

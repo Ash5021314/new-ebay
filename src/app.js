@@ -9,7 +9,8 @@ import items from './routes/items'
 
 const app = express();
 
-mongoose.connect('mongodb+srv://ash:20080101.@cluster0-exkw1.mongodb.net/test?retryWrites=true&w=majority', {
+// mongoose.connect('mongodb+srv://ash:20080101.@cluster0-exkw1.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect('mongodb://localhost:27017/test', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }, function () { return console.log('connect to db'); });

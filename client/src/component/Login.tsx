@@ -20,9 +20,16 @@ const Login = (props: any) => {
             password: input.password
         };
         login(user).then(res => {
-            if (res) {
-                props.history.push(`/profile`)
+            console.log(res.error);
+            if (!res.error) {
+                props.history.push(`/profile`);
+                window.location.reload();
             }
+            else{
+                alert("wrong Email or password")
+                return
+            }
+
         })
 
     };

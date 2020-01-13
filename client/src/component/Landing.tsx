@@ -42,7 +42,7 @@ const Landing = (props: any) => {
                             {modalContent.description}
                         </p>
                         <p>
-                           $  {modalContent.price}
+                             {modalContent.price}
                         </p>
                     </Modal.Description>
                 </Modal.Content>
@@ -67,6 +67,7 @@ const Landing = (props: any) => {
                                                        description: product.description
                                                    });
                                                    setModalOpen(!modalOpen)
+
                                                }}/>)}
                 </Card.Group>
             </Container>
@@ -93,6 +94,7 @@ const sortBy = (products: any, filterBy: any) => {
 };
 
 const filterProducts = (products: any, searchQuery: any) => {
+
     return products.filter((o: any) =>
         o.title.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0 ||
         o.author.toLowerCase().indexOf(searchQuery.toLowerCase()) >= 0

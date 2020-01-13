@@ -4,13 +4,14 @@ import {bindActionCreators} from "redux";
 import * as cartAction from "./actions/cart";
 import {connect} from "react-redux";
 import {Popup} from "semantic-ui-react";
-import uniqBy from 'lodash/uniqBy'
-
+import uniqBy from 'lodash/uniqBy';
+import { withRouter } from "react-router";
 const Navbar = (props: any) => {
     const {totalPrice, count, items} = props;
     const logout = (e: any) => {
         e.preventDefault();
         localStorage.removeItem('usertoken');
+        console.log(props.history);
         props.history.push('/');
     };
 
@@ -106,4 +107,4 @@ const mapStateToProps = ({cart}: any) => ({
 const mapDispatchToProps = (dispatch: any) => ({
     ...bindActionCreators(cartAction, dispatch)
 });
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navbar));

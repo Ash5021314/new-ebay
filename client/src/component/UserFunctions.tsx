@@ -19,7 +19,6 @@ export const login = (user: any) => {
             email: user.email,
             password: user.password
         }).then(res => {
-            console.log(res.data);
             localStorage.setItem('usertoken', res.data);
             return res.data
         })

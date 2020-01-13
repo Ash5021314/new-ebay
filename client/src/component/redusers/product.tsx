@@ -15,7 +15,13 @@ export default (state = initialState, action: any) => {
             return {
                 ...state,
                 items: state.items.filter(({_id}) => _id !== action.payload)
-            }
+            };
+        case 'ADD_ITEM':
+            return {
+                ...state,
+                items: [action.payload, ...state.items]
+            };
+
         case 'SET_IS_READY':
             return {
                 ...state,

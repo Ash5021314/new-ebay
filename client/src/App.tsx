@@ -7,18 +7,22 @@ import Register from './component/Register'
 import Profile from './component/Profile'
 import Cart from './component/Cart'
 import Administrator from "./component/Administrator";
+import ItemsEditComponent from "./component/ItemsEditComponent";
 
 
 const App = () => {
 
     return (
         <Router>
+
             <div className="App">
                 <Navbar/>
-                <Route exact path='/' component={Landing}/>
                 <div className="container">
-                    <Administrator/>
+
+                    <Route exact path='/' component={Landing}/>
                     <Route exact path='/register' component={Register}/>
+                    <Route exact path='/Administrator' component={Administrator}/>
+                    <Route exact path='/ItemsEditComponent' component={ItemsEditComponent}/>
                     <Route exact path='/login' component={Login}/>
                     <Route exact path='/profile' component={Profile}/>
                     <Route exact path='/Cart' component={Cart}/>

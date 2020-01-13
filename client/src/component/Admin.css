@@ -1,6 +1,6 @@
 .productImg{
-    height: 200px;
-    width: 150px;
+    height: 100px;
+    width: 70px;
     float: left;
     margin-right: 50px;
 }
@@ -16,5 +16,10 @@
     display: flex ;
     align-items: center;
     justify-content: space-between;
-
+}
+.ui.table:first-child {
+    margin-top: 30px !important;
+}
+.ui.modal .scrolling.content {
+ max-height: none !important;
 }
